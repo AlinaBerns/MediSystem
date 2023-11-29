@@ -2,6 +2,7 @@ package com.example.brussel.be.model;
 
 import jakarta.persistence.*;
 
+//Этот класс нужно связать с ENUMS
 @Entity
 @Table(name = "roles")
 public class Role {
