@@ -58,13 +58,13 @@ public class Patient {
     @Column(name = "patient_id")
     private Long patientId;
 
-    @OneToMany(mappedBy = "patient", targetEntity = Appointment.class)
-    private List<Appointment> appointments;
+    @OneToMany(mappedBy = "patient", targetEntity = CalendarEvent.class)
+    private List<CalendarEvent> events;
 
     @OneToMany(mappedBy = "patient")
     private List<Diagnose> diagnoses;
 
-    public Patient(Long id, String name, String familyName, String insurance, String address, String username, String password, String gender, String age, String contraindications, String allergies, String contactNumber, String email, Long patientId, List<Appointment> appointments) {
+    public Patient(Long id, String name, String familyName, String insurance, String address, String username, String password, String gender, String age, String contraindications, String allergies, String contactNumber, String email, Long patientId, List<CalendarEvent> events) {
         this.id = id;
         this.name = name;
         this.familyName = familyName;
@@ -79,7 +79,7 @@ public class Patient {
         this.contactNumber = contactNumber;
         this.email = email;
         this.patientId = patientId;
-        this.appointments = appointments;
+        this.events = events;
     }
 
     public Patient(Long id, String username, String password) {
@@ -205,12 +205,12 @@ public class Patient {
         this.patientId = patientId;
     }
 
-    public List<Appointment> getAppointments() {
-        return appointments;
+    public List<CalendarEvent> getAppointments() {
+        return events;
     }
 
-    public void setAppointments(List<Appointment> appointments) {
-        this.appointments = appointments;
+    public void setAppointments(List<CalendarEvent> appointments) {
+        this.events = appointments;
     }
 
     public MedicalCard getMedicalCard() {
